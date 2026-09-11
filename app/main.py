@@ -5,9 +5,10 @@ from pathlib import Path
 import pandas as pd
 import joblib
 import json
+from fastapi.middleware.cors import CORSMiddleware
 
 app = FastAPI()
-
+ app.add_middleware( CORSMiddleware, allow_origins=["http://localhost:5173", "https://frontend-lac-seven-59.vercel.app/"], allow_credentials=True, allow_methods=["*"], allow_headers=["*"], )
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],
